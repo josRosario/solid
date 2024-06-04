@@ -1,7 +1,6 @@
 import { User } from "../../entities/User";
 import { IUserRepository } from "../IUsersRepository";
 import { ModelUser } from "../../model/user.model";
-import * as argon2 from "argon2";
 
 export class UserRepository implements IUserRepository{
 

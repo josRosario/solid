@@ -9,7 +9,7 @@ export class CreateUserController{
     async handle(request: Request, response: Response): Promise<Response>{
         const {name, email, password} = request.body
         try {
-            await this.createUser.saveUser({
+            await this.createUser.execute({
                 name,
                 email,
                 password
