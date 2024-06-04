@@ -6,8 +6,9 @@ export class CreateUser{
     constructor(
         private userRepository:IUserRepository
     ){}
-    async saveUser(data:ICreateUserRequestDTO){
-        await this.userRepository.findByEmail(data.email)
+    async execute(data:ICreateUserRequestDTO){
+       const emailAlreadyExist = await this.userRepository.findByEmail(data.email)
+       if(emailAlreadyExist) throw new Error ("Email already exist")
         const user = new User(data)
        await this.userRepository.save(user);
 

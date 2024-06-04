@@ -5,13 +5,13 @@ import * as argon2 from "argon2";
 
 export class UserRepository implements IUserRepository{
 
-    async  findByEmail(email: string): Promise<User> {
+    async  findByEmail(email: string): Promise<User | null> {
      const user = await ModelUser.findOne({
         where:{
             email
         }
       })
-      if(user) throw new Error("The user already exist")
+      return user || null
     }
 
 
