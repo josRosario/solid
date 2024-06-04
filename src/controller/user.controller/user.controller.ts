@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateUser } from "../../service/CreateUserService";
+import { CreateUser, GetUsers } from "../../service/UserService";
 
 export class CreateUserController{
     constructor(
@@ -20,4 +20,22 @@ export class CreateUserController{
             
         }
     }
+}
+
+
+export class GetUsersController{
+    constructor(
+        private getUsers: GetUsers
+    ){}
+
+    async handle(request: Request, response: Response): Promise<Response>{
+        try {
+            const users = await this.getUsers.getUsers();
+            return response.status(201).json({data:users})
+
+        } catch (error) {
+            return response.status(400).json({message: error.message || "Unexpected error"})
+        }
+    }
+
 }

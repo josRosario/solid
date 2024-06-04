@@ -17,4 +17,8 @@ export class UserRepository implements IUserRepository{
     async save(user:User):Promise<void>{
          await ModelUser.create(user)
     }
+
+    async getUsers():Promise<User | null>{
+      return await ModelUser.findAll()
+    }
 }
