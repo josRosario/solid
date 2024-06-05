@@ -26,4 +26,4 @@ const getUsersController = new GetUsersController(
     getUsers
 )
 
-export {createUserController, CreateUser, getUsersController, getUserByEmailController}
+export {createUserController, getUsersController, getUserByEmailController}

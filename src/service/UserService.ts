@@ -11,7 +11,6 @@ export class GetUserByEmail{
         const emailAlreadyExist = await this.getDataRepository.findByEmail(email)
         return emailAlreadyExist
     }
-    
 }
 
 export class CreateUser extends GetUserByEmail{
