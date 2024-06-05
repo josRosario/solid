@@ -1,6 +1,6 @@
 import { User } from "../entities/User";
 import { IUserRepository, IGetDataRepository } from "../repository/IUsersRepository";
-import { ICreateUserRequestDTO } from "./UserDTO";
+import { IUserDTO } from "./UserDTO";
 
 
 export class GetUserByEmail{
@@ -21,7 +21,7 @@ export class CreateUser extends GetUserByEmail{
         super(getDataRepository);
     }
    
-    async execute(data:ICreateUserRequestDTO){
+    async execute(data:IUserDTO){
         const emailAlreadyExist = await this.getUserByEmail(data.email)
        if(emailAlreadyExist) throw new Error ("Email already exist")
         const user = new User(data)
