@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUser, GetUsers } from "../../service/UserService";
+import * as argon2 from "argon2";
 
 export class CreateUserController{
     constructor(
@@ -12,7 +13,7 @@ export class CreateUserController{
             await this.createUser.execute({
                 name,
                 email,
-                password
+                password:  await argon2.hash(password)
             })
             return response.status(201).json({message:"User created successfully!"})
         } catch (error) {
