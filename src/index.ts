@@ -1,6 +1,6 @@
-import { UserRepository } from "../repository/implementations/UserRepository";
-import { CreateUserController, GetUsersController } from "../controller/user.controller/user.controller";
-import { CreateUser, GetUsers } from "./UserService";
+import { UserRepository } from "./repository/implementations/UserRepository";
+import { CreateUserController, GetUsersController } from "./controller/user.controller/user.controller";
+import { CreateUser, GetUsers } from "./service/UserService";
 
 const userRepository = new UserRepository()
 const createUser = new CreateUser(

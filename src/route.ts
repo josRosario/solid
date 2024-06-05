@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUserController, getUsersController } from "./service";
+import { createUserController, getUsersController } from "./index";
 const router = Router();
 
 router.post("/newUser", (request, response) => {
