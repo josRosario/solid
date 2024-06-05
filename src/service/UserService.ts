@@ -1,5 +1,5 @@
 import { User } from "../entities/User";
-import { IUserRepository, IGetDataRepository } from "../repository/IUser";
+import { ICreateUserRepository, IGetDataRepository, IUsersRepository } from "../repository/IUser";
 import { IUserDTO } from "./UserDTO";
 
 
@@ -8,14 +8,14 @@ export class GetUserByEmail{
         private getDataRepository:IGetDataRepository
     ){}
     async getUserByEmail(email:string): Promise<User | null>{
-        const emailAlreadyExist = await this.getDataRepository.findByEmail(email)
-        return emailAlreadyExist
+        const user = await this.getDataRepository.findByEmail(email)
+        return user;
     }
 }
 
 export class CreateUser extends GetUserByEmail{
     constructor(
-        private userRepository:IUserRepository,
+        private userRepository:ICreateUserRepository,
         getDataRepository: IGetDataRepository 
     ){
         super(getDataRepository);
@@ -31,7 +31,7 @@ export class CreateUser extends GetUserByEmail{
 
 
 export class GetUsers{
-    constructor(private userRepository:IUserRepository){}
+    constructor(private userRepository:IUsersRepository){}
     async getUsers(){
         return await this.userRepository.getUsers()
     }

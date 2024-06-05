@@ -1,8 +1,8 @@
 import { User } from "../../entities/User";
-import { IUserRepository, IGetDataRepository } from "../IUser";
+import { ICreateUserRepository, IGetDataRepository, IUsersRepository } from "../IUser";
 import { ModelUser } from "../../model/user.model";
 
-export class UserRepository implements IUserRepository, IGetDataRepository{
+export class UserRepository implements ICreateUserRepository, IGetDataRepository{
 
     async  findByEmail(email: string): Promise<User | null> {
      const user = await ModelUser.findOne({

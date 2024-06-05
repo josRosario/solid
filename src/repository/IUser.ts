@@ -1,11 +1,14 @@
 import { User } from "../entities/User";
 
-export interface IUserRepository{
+export interface ICreateUserRepository{
     save(user:User):Promise<void>;
-    getUsers():Promise<User | null>
 }
 
 
 export interface IGetDataRepository{
     findByEmail(email:string):Promise<User | null>;
+}
+
+export interface IUsersRepository{
+    getUsers():Promise<User | null>
 }
