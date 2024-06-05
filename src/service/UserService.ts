@@ -20,9 +20,7 @@ export class CreateUser extends GetUserByEmail{
     ){
         super(getDataRepository);
     }
-    getData(data: ICreateUserRequestDTO): Promise<User | null> {
-        throw new Error("Method not implemented.");
-    }
+   
     async execute(data:ICreateUserRequestDTO){
         const emailAlreadyExist = await this.getUserByEmail(data.email)
        if(emailAlreadyExist) throw new Error ("Email already exist")
