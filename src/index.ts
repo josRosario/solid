@@ -1,10 +1,14 @@
 import { UserRepository } from "./repository/implementations/UserRepository";
-import { CreateUserController, GetUsersController } from "./controller/user.controller/user.controller";
+import { CreateUserController, GetUsersController, GetUserByEmailController } from "./controller/user.controller/user.controller";
 import { CreateUser, GetUsers } from "./service/UserService";
 
-const userRepository = new UserRepository()
+const userRepository = new UserRepository();
+
+
+
 const createUser = new CreateUser(
-    userRepository
+    userRepository,
+    userRepository    
 )
 
 const getUsers = new GetUsers(
@@ -14,8 +18,12 @@ const createUserController = new CreateUserController(
     createUser
 )
 
+const getUserByEmailController = new GetUserByEmailController(
+    createUser
+)
+
 const getUsersController = new GetUsersController(
     getUsers
 )
 
-export {createUserController, CreateUser, getUsersController}
+export {createUserController, CreateUser, getUsersController, getUserByEmailController}
