@@ -10,7 +10,7 @@ export class CreateUserController{
     async handle(request: Request, response: Response): Promise<Response>{
         const {name, email, password} = request.body
         try {
-            await this.createUser.execute({
+            await this.createUser.createUser({
                 name,
                 email,
                 password:  await argon2.hash(password)
@@ -38,16 +38,12 @@ export class GetUsersController{
             return response.status(400).json({message: error.message || "Unexpected error"})
         }
     }
-
 }
-
 
 export class GetUserByEmailController{
     constructor(
         private getUserEmail: GetUserByEmail
-
     ){}
-
     async handle(request: Request, response:Response): Promise<Response>{
         const {email} = request.body
         try {

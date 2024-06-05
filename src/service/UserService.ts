@@ -21,7 +21,7 @@ export class CreateUser extends GetUserByEmail{
         super(getDataRepository);
     }
    
-    async execute(data:IUserDTO){
+    async createUser(data:IUserDTO){
         const emailAlreadyExist = await this.getUserByEmail(data.email)
        if(emailAlreadyExist) throw new Error ("Email already exist")
         const user = new User(data)
