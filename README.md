@@ -2,7 +2,21 @@
 ![1_lJ2ixDxnNFMJXLTgQ-XT0A](https://github.com/josRosario/solid/assets/165838841/97f8b399-373c-4e53-ab59-ab27fb2a6260)
 
 
-SOLID es un acrónimo que representa cinco principios de diseño para escribir software limpio, mantenible y extensible:
+# Data Transfer Object (DTO) – Patrón de diseño
+
+* Una de las problemáticas más comunes cuando desarrollamos aplicaciones, es diseñar la forma en que la información debe viajar desde la capa de servicios a las aplicaciones o capa de presentación, ya que muchas veces por desconocimiento o pereza, utilizamos las clases de entidades para retornar los datos, lo que ocasiona que retornemos más datos de los necesarios o incluso, tengamos que ir en más de una ocasión a la capa de servicios para recuperar los datos requeridos.
+
+![dto](https://github.com/josRosario/solid/assets/165838841/6405ec41-5842-45c8-8542-a42cdbf1f70b)
+
+
+
+
+
+El patrón DTO tiene como finalidad de crear un objeto plano (POJO) con una serie de atributos que puedan ser enviados o recuperados del servidor en una sola invocación, de tal forma que un DTO puede contener información de múltiples fuentes o tablas y concentrarlas en una única clase simple.
+
+
+
+# SOLID es un acrónimo que representa cinco principios de diseño para escribir software limpio, mantenible y extensible:
 
 * `Principio de responsabilidad única`(SRP): cada clase o módulo debe tener una única responsabilidad, lo que significa que solo debe cambiar por un motivo.
 
