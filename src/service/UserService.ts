@@ -1,5 +1,5 @@
 import { User } from "../entities/User";
-import { IUserRepository, IGetDataRepository } from "../repository/IUsersRepository";
+import { IUserRepository, IGetDataRepository } from "../repository/IUser";
 import { IUserDTO } from "./UserDTO";
 
 

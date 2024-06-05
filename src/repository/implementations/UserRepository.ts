@@ -1,5 +1,5 @@
 import { User } from "../../entities/User";
-import { IUserRepository, IGetDataRepository } from "../IUsersRepository";
+import { IUserRepository, IGetDataRepository } from "../IUser";
 import { ModelUser } from "../../model/user.model";
 
 export class UserRepository implements IUserRepository, IGetDataRepository{
