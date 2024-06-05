@@ -4,8 +4,6 @@ import { CreateUser, GetUsers } from "./service/UserService";
 
 const userRepository = new UserRepository();
 
-
-
 const createUser = new CreateUser(
     userRepository,
     userRepository    
