@@ -1,11 +1,11 @@
 import { User } from "../../entities/User";
 import { ICreateUserRepository, IGetDataRepository, IUsersRepository } from "../IUser";
-import { ModelUser } from "../../model/user.model";
+import { PrimaryModelUser, ReplicaModelUser } from "../../model/user.model";
 
 export class UserRepository implements ICreateUserRepository, IGetDataRepository{
 
     async  findByEmail(email: string): Promise<User | null> {
-     const user = await ModelUser.findOne({
+     const user = await ReplicaModelUser.findOne({
         where:{
             email
         }
@@ -15,10 +15,11 @@ export class UserRepository implements ICreateUserRepository, IGetDataRepository
 
 
     async save(user:User):Promise<void>{
-         await ModelUser.create(user)
+         await PrimaryModelUser.create(user);
+         await ReplicaModelUser.create(user)
     }
 
     async getUsers():Promise<User | null>{
-      return await ModelUser.findAll()
+      return await ReplicaModelUser.findAll()
     }
 }
